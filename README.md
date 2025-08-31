@@ -5,6 +5,8 @@ A modern, responsive portfolio website showcasing expertise in food science and 
 ## Recent Updates (Latest Version)
 
 ### New Certifications Added
+- **Introduction to Codex** - Certification from FAO elearning Academy for comprehensive understanding of international food standards and Codex Alimentarius Commission guidelines.
+- **Introduction to Trade, Food Security and Nutrition** - Certification from FAO elearning Academy covering international trade principles, food security frameworks, and nutritional policy development.
 - **ISO 9001:2015 Clause-by-Clause Course** - Certification from Perry Johnson Registrars, Inc. for comprehensive understanding of ISO 9001:2015 quality management system standards.
 - **HACCP Food Safety System for Restaurants and Other Catering Services** - Certification from Alison for Hazard Analysis and Critical Control Points food safety system implementation in food service establishments.
 - **Food Safety and Quality Management** - Comprehensive certification in food safety protocols, quality control systems, and regulatory compliance standards.
@@ -96,8 +98,10 @@ When Git becomes available, use these commands to commit the changes:
 git add .
 
 # Commit with descriptive message
-git commit -m "feat: Add new certifications and publications
+git commit -m "feat: Add FAO certifications and enhance portfolio design
 
+- Add Introduction to Codex certification (FAO)
+- Add Introduction to Trade, Food Security and Nutrition certification (FAO)
 - Add ISO 9001:2015 Clause-by-Clause Course certification
 - Add HACCP Food Safety System certification
 - Add Food Safety and Quality Management certification
