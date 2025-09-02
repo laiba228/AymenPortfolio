@@ -129,6 +129,9 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    letter-spacing: 0.02em;
+    font-size: 1.05rem;
+    min-width: 120px;
 }
 
 .btn::before {
@@ -552,7 +555,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-header {
-    margin-bottom: clamp(4rem, 10vw, 6rem);
+    margin-bottom: clamp(4rem, 8vw, 6rem);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .about-content {
@@ -1420,12 +1425,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
     }
 
     .nav-container {
-        padding: 0 1rem;
-    }
+        padding: 0 0.5rem;
+}
 
     .hero-title {
         font-size: clamp(2.5rem, 8vw, 3.5rem);
@@ -1487,15 +1492,17 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .portfolio-item {
-        margin: 0 1rem;
+        margin: 0 0.5rem 2rem 0.5rem;
+        padding: 1.2rem 0.7rem;
     }
 
     .achievement-item {
-        margin: 0 1rem;
+        margin: 0 0.5rem 2rem 0.5rem;
+        padding: 1.2rem 0.7rem;
     }
 
     .skills-grid {
-        gap: 1rem;
+        gap: 1.2rem;
     }
 
     .skill-item {
@@ -1534,6 +1541,16 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 5px;
 }
 
+.btn:focus-visible {
+    outline: 3px solid #6b8e4e;
+    outline-offset: 2px;
+}
+
+.nav-link:focus-visible {
+    outline: 2px solid #8b5a3c;
+    outline-offset: 2px;
+}
+
 /* ===== PERFORMANCE OPTIMIZATIONS ===== */
 .portfolio-item,
 .achievement-item,
@@ -1544,6 +1561,19 @@ h1, h2, h3, h4, h5, h6 {
 .hero-image,
 .image-placeholder {
     will-change: transform;
+}
+
+.portfolio-item, .achievement-item {
+    transition: box-shadow 0.4s, transform 0.4s;
+}
+
+.portfolio-item:hover, .achievement-item:hover {
+    box-shadow: 0 20px 50px rgba(139, 90, 60, 0.18);
+    transform: translateY(-10px) scale(1.015);
+}
+
+.btn, .nav-link, .tag {
+    transition: box-shadow 0.3s, transform 0.3s, background 0.3s, color 0.3s;
 }
 
 /* ===== PRINT STYLES ===== */
@@ -1905,4 +1935,108 @@ html {
         height: 45px;
         font-size: 1rem;
     }
+}
+
+/* ===== CULINARY VIBE ENHANCEMENTS (SUBTLE) ===== */
+@media (min-width: 0px) {
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f955.png') no-repeat right bottom;
+    background-size: 60px 60px;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+/* ===== REFINED SPACING & ALIGNMENT ===== */
+.section-header {
+  margin-bottom: clamp(4rem, 8vw, 6rem);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 3rem);
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  .section-header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* ===== BUTTON POLISH ===== */
+.btn {
+  letter-spacing: 0.02em;
+  font-size: 1.05rem;
+  min-width: 120px;
+}
+
+.btn-primary, .btn-secondary {
+  box-shadow: 0 4px 18px rgba(139, 90, 60, 0.13);
+}
+
+/* ===== HOVER/FOCUS POLISH ===== */
+.btn:focus-visible {
+  outline: 3px solid #6b8e4e;
+  outline-offset: 2px;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid #8b5a3c;
+  outline-offset: 2px;
+}
+
+/* ===== PORTFOLIO & ACHIEVEMENTS POLISH ===== */
+.portfolio-item, .achievement-item {
+  transition: box-shadow 0.4s, transform 0.4s;
+}
+
+.portfolio-item:hover, .achievement-item:hover {
+  box-shadow: 0 20px 50px rgba(139, 90, 60, 0.18);
+  transform: translateY(-10px) scale(1.015);
+}
+
+/* ===== IMPROVED MOBILE SPACING ===== */
+@media (max-width: 480px) {
+  .portfolio-item, .achievement-item {
+    margin: 0 0.5rem 2rem 0.5rem;
+    padding: 1.2rem 0.7rem;
+  }
+  .skills-grid, .achievements-grid, .portfolio-grid {
+    gap: 1.2rem;
+  }
+}
+
+/* ===== SUBTLE ANIMATION POLISH ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .portfolio-item, .achievement-item, .skill-item {
+    transition: box-shadow 0.4s, transform 0.4s, background 0.4s;
+  }
+  .btn, .nav-link, .tag {
+    transition: box-shadow 0.3s, transform 0.3s, background 0.3s, color 0.3s;
+  }
+}
+
+/* ===== IMPROVED SECTION FLOW ===== */
+section {
+  scroll-margin-top: 90px;
+}
+
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 80px;
+  }
 }

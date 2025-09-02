@@ -37,10 +37,10 @@ const achievementItems = document.querySelectorAll('.achievement-item');
 const skillItems = document.querySelectorAll('.skill-item');
 
 // ===== NAVIGATION FUNCTIONALITY =====
-// Mobile menu toggle
+    // Mobile menu toggle
 hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
     
     // Prevent body scroll when menu is open
     if (navMenu.classList.contains('active')) {
@@ -57,25 +57,25 @@ document.addEventListener('click', (e) => {
         navMenu.classList.remove('active');
         document.body.style.overflow = '';
     }
-});
-
-// Close mobile menu when clicking on a link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
     });
-});
+
+    // Close mobile menu when clicking on a link
+    navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        });
+    });
 
 // ===== SCROLL EFFECTS =====
 // Navbar scroll effect with throttling
 const handleNavbarScroll = throttle(() => {
     if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
 }, 16);
 
 window.addEventListener('scroll', handleNavbarScroll);
@@ -85,14 +85,14 @@ const updateActiveNavLink = throttle(() => {
     const sections = document.querySelectorAll('section[id]');
     const scrollPos = window.scrollY + 200;
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
         const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
 
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            navLinks.forEach(link => link.classList.remove('active'));
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                navLinks.forEach(link => link.classList.remove('active'));
             if (navLink) navLink.classList.add('active');
         }
     });
@@ -161,8 +161,8 @@ const animatePortfolioItems = () => {
 const animateAchievementItems = () => {
     achievementItems.forEach((item, index) => {
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
                     entry.target.style.animationDelay = `${index * 0.1}s`;
                     entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
                     observer.unobserve(entry.target);
@@ -186,7 +186,7 @@ skillItems.forEach(item => {
 });
 
 // ===== FORM VALIDATION & SUBMISSION =====
-if (contactForm) {
+    if (contactForm) {
     const formInputs = contactForm.querySelectorAll('input, textarea');
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     
@@ -256,11 +256,11 @@ if (contactForm) {
         field.parentNode.appendChild(errorElement);
     }
     
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
     // Form submission
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -483,6 +483,25 @@ document.addEventListener('DOMContentLoaded', () => {
         mainContent.id = 'main-content';
     }
 });
+
+// ===== SKIP LINK ACCESSIBILITY =====
+// Ensure skip link is focusable and scrolls to main content
+const skipLink = document.querySelector('.skip-link');
+if (skipLink) {
+  skipLink.addEventListener('focus', () => {
+    skipLink.style.top = '6px';
+  });
+  skipLink.addEventListener('blur', () => {
+    skipLink.style.top = '-40px';
+  });
+  skipLink.addEventListener('click', (e) => {
+    const mainContent = document.getElementById('main-content');
+    if (mainContent) {
+      mainContent.setAttribute('tabindex', '-1');
+      mainContent.focus();
+    }
+  });
+}
 
 // ===== ADDITIONAL CSS ANIMATIONS =====
 const additionalStyles = `
